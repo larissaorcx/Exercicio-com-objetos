@@ -6,10 +6,31 @@
 let alunosClasse = Number(prompt("Digite o número de alunos na classe"))
 
 
-function creatAluno(alunosClasse) {
-    classe = []
-    for(let i = 0; i < classe; i++){
-        aluno = []
-        classe.push(aluno)
+function notasDaSala(alunosClasse) {
+    notas = []
+    for(let i = 0; i < alunosClasse; i++){
+        nota = Math.random()
+        notas.push(nota)
     }
+    return(notas)
+}
+
+function media(notas, alunosClasse) {
+    soma = 0
+    for(let i = 0; i < alunosClasse; i++){
+        soma += notas[i]
+    }
+
+    let media = soma / alunosClasse
+    return media
+}
+
+
+
+let teacher = {
+    notas: notasDaSala(alunosClasse),
+    media: media(notas, alunosClasse),
+    aprovados: alunosAprovado(),
+    reprovados: alunosReprovados()
+
 }
