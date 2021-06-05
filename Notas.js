@@ -3,13 +3,17 @@
 
 let alunosClasse = Number(prompt("Digite o número de alunos na classe"))
 
+let notas = []
+let aprovados = []
+let reprovados = []
 
-function notasDaSala(alunosClasse) {
-    let notas = []
+function notasDaSala(notas, alunosClasse) {
+    
     for(let i = 0; i < alunosClasse; i++){
-        let nota = Math.random()
+        let nota = Math.floor(Math.random() * 10) // gera um numero aletorio de 0 a 10
         notas.push(nota)
     }
+    console.log(notas)
     return(notas)
 }
 
@@ -23,30 +27,30 @@ function media(notas, alunosClasse) {
     return media
 }
 
-function alunosAprovados(notas, alunosClasse) {
-    aprovado = []
-    for(let i = 0; i < alunosClasse; i++){
+function alunosAprovados(aprovados, notas) {
+    for(let i = 0; i < notas.length; i++){
         if(notas[i] >= 5){
-            aprovado.push(notas)
+            aprovados.push(notas[i])
         }
     }
-    return aprovado
+    return aprovados
 }
 
-function alunosReprovados(notas, alunosClasse) {
-    reprovados = []
-    for(let i = 0; i < alunosClasse; i++){
+function alunosReprovados(reprovados, notas) {
+    for(let i = 0; i < notas.length; i++){
         if(notas[i] < 5){
-            reprovados.push(notas)
+            reprovados.push(notas[i])
         }
     }
-    return aprovado
+    return reprovados
 }
 
 let teacher = {
-    notas: notasDaSala(alunosClasse),
+    notas: notasDaSala(notas, alunosClasse),
     media: media(notas, alunosClasse),
-    aprovados: alunosAprovado(notas, alunosClasse),
-    reprovados: alunosReprovados(notas, alunosClasse)
+    aprovados: alunosAprovados(aprovados, notas),
+    reprovados: alunosReprovados(reprovados, notas)
 
 }
+
+console.log(teacher)
